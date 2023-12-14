@@ -5,9 +5,10 @@ import { Inter, Space_Grotesk } from 'next/font/google'
 import type { Metadata } from 'next';
 
 import './globals.css';
+// import { ThemeProvider } from '@/context/ThemeProvider';
 
 const inter = Inter({
-  subsets: ['latin'],
+  subsets: ['latin'], 
   weight: ['100', '200', '300', '400', '500', '600', '700', '800', '900'],
   variable: '--font-inter'
 })
@@ -26,21 +27,21 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <ClerkProvider 
-     appearance={{
-      elements:{
-        formButtonPrimary:'primary-gradient',
-        footerActionLink:'primary-test-gradient hover:text-primary-500'
-      }
-     }}
-    
+    <ClerkProvider
+      appearance={{
+        elements: {
+          formButtonPrimary: 'primary-gradient',
+          footerActionLink: 'primary-test-gradient hover:text-primary-500'
+        }
+      }}
     >
       <html lang="en">
         <body className={`${inter.variable} ${spaceGrotesk.variable}`}>
+          {/* <ThemeProvider> */}
           {children}
+          {/* </ThemeProvider> */}
         </body>
-
       </html>
-    </ClerkProvider>
+    </ClerkProvider >
   )
 }
